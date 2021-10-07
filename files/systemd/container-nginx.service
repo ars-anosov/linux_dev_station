@@ -1,0 +1,13 @@
+[Unit]
+Description=docker container nginx
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker start -a nginx
+ExecStop=/usr/bin/docker stop -t 2 nginx
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
