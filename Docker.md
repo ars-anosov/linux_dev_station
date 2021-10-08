@@ -131,8 +131,12 @@ sudo docker logs php-fpm-54
 sudo docker exec -it php-fpm-54 bash
     apt install libdbi-perl libdbd-mysql-perl
     perl /mnt/www/hlds_ps/stats.pl
-    crontab -e
-    #---
-    * * * * * /usr/bin/perl /mnt/www/hlds_ps/stats.pl 1>/dev/null 2>&1
-    #---
+```
+
+cron на хостовой машине
+```bash
+sudo crontab -e
+#---
+* * * * * docker exec php-fpm-54 /usr/bin/perl /mnt/www/hlds_ps/stats.pl 1>>/home/ars/hlds_stats.log 2>&1
+#---
 ```
