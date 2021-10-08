@@ -19,10 +19,9 @@ RUN apt-get update && apt-get install -y \
         libxml2-dev \
         libxslt1-dev \
         libssh2-1-dev \
-        ssmtp
-
-# RUN apt-get install -y \
-#         cron
+        ssmtp \
+        cron \
+        vim
 
 RUN docker-php-ext-install mcrypt \
     && docker-php-ext-install curl \

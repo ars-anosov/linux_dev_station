@@ -112,9 +112,27 @@ sudo docker run \
   -d \
   --network=host \
   -v ~/share/nginx/www:/mnt/www \
+  -v ~/share/cstrike/logs:/mnt/cstrike/logs \
   php-fpm-my:54
 
 sudo docker logs php-fpm-54
 ```
 
 Проверяем nxinx+php-fpm - http://site.home/index.php
+
+
+## Парсер статистики от PcychoStats
+
+Подкидываю директорию lib + stats.pl в ~/share/nginx/www/, заливаем в контейнер > /mnt/www/hlds_ps/
+
+Через WEB-интерфейс добавляю http://site.home/hlds_ps/admin/logsources_edit.php > /mnt/cstrike/logs
+
+```bash
+sudo docker exec -it php-fpm-54 bash
+    apt install libdbi-perl libdbd-mysql-perl
+    perl /mnt/www/hlds_ps/stats.pl
+    crontab -e
+    #---
+    * * * * * /usr/bin/perl /mnt/www/hlds_ps/stats.pl 1>/dev/null 2>&1
+    #---
+```
