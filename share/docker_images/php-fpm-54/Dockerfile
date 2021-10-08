@@ -68,6 +68,6 @@ COPY ./ssmtp.conf /etc/ssmtp/ssmtp.conf
 RUN apt-get -y autoclean && apt-get -y autoremove && apt-get -y clean && rm -rf /var/lib/apt/lists/* && apt-get update
 
 # Set the proper permissions
-# RUN usermod -u 1000 www-data
+RUN usermod -u 1000 www-data
 
 CMD ["php-fpm"]
