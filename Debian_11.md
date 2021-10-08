@@ -17,12 +17,11 @@
 
 Чекаем версию, заходим в root с окружением root
 ```bash
-su -
-pwd
 cat /etc/os-release
 # PRETTY_NAME="Debian GNU/Linux 11 (bullseye)"
+su -
+pwd
 ```
-
 
 
 ## Источники apt
@@ -46,6 +45,13 @@ deb-src http://deb.debian.org/debian/ bullseye-updates main
 apt update
 ```
 
+
+## Время
+```bash
+timedatectl
+ls -la /etc/localtime
+timedatectl set-timezone Europe/Moscow
+```
 
 
 ## sudo

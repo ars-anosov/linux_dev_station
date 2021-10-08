@@ -67,29 +67,6 @@ GUI tool - [MySQL Workbench](https://dev.mysql.com/downloads/workbench/)
 
 
 
-# 2. php-fpm (контейнер php-fpm-my:7.1)
-см. [doc.](https://hub.docker.com/_/php/), [чье-то описание](https://phptoday.ru/post/gotovim-lokalnuyu-sredu-docker-dlya-razrabotki-na-php)
-
-```bash
-sudo docker images
-sudo docker build -t php-fpm-my:7.1 ~/share/docker_images/php-fpm-7.1/
-
-sudo docker run \
-  --name php-fpm-71 \
-  -d \
-  --network=host \
-  -v ~/share/nginx/www:/var/www \
-  php-fpm-my:7.1
-```
-
-
-
-
-
-
-
-
-
 # 3. nginx (контейнер nginx:stable)
 см. [doc](https://hub.docker.com/_/nginx)
 
@@ -101,6 +78,8 @@ sudo docker run \
   -v ~/share/nginx/www:/mnt/www \
   -v ~/share/nginx/conf.d:/etc/nginx/conf.d \
   nginx:stable
+
+sudo docker logs nginx
 ```
 
 У себя на машине PowerShell (администратор):
@@ -111,6 +90,31 @@ notepad C:\Windows\System32\drivers\etc\hosts
 #---
 
 ping site.home
+```
+
+
+
+
+
+
+
+
+
+# 2. php-fpm (контейнер php-fpm-my:54)
+см. [doc.](https://hub.docker.com/_/php/), 5.4 подсматривал у [johanvanhelden/dockerhero](https://hub.docker.com/r/johanvanhelden/dockerhero-php-5.4-fpm/dockerfile)
+
+```bash
+sudo docker images
+sudo docker build -t php-fpm-my:54 ~/share/docker_images/php-fpm-54/
+
+sudo docker run \
+  --name php-fpm-54 \
+  -d \
+  --network=host \
+  -v ~/share/nginx/www:/mnt/www \
+  php-fpm-my:54
+
+sudo docker logs php-fpm-54
 ```
 
 Проверяем nxinx+php-fpm - http://site.home/index.php
