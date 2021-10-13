@@ -67,7 +67,7 @@ GUI tool - [MySQL Workbench](https://dev.mysql.com/downloads/workbench/)
 
 
 
-# 3. nginx (контейнер nginx:stable)
+# 2. nginx (контейнер nginx:stable)
 см. [doc](https://hub.docker.com/_/nginx)
 
 ```bash
@@ -100,7 +100,7 @@ ping site.home
 
 
 
-# 2. php-fpm (контейнер php-fpm-my:54)
+# 3. php-fpm (контейнер php-fpm-my:54)
 см. [doc.](https://hub.docker.com/_/php/), 5.4 подсматривал у [johanvanhelden/dockerhero](https://hub.docker.com/r/johanvanhelden/dockerhero-php-5.4-fpm/dockerfile)
 
 ```bash
