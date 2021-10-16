@@ -4,7 +4,7 @@
 - в каждом контейнере есть директория **/mnt**
 - прокидываем директорию **~/share** с linux-виртуалки в директорию **/mnt** контейнеров
 
-**! Копируем через sftp-плагин VSCode содержимое share на linux-виртуалку !**
+**Перед установкой залить на VPS директорию [share](share)!** Я это делаю через VSCode-плагин [SFTP](https://marketplace.visualstudio.com/items?itemName=Natizyskunk.sftp)
 
 
 
@@ -112,31 +112,9 @@ sudo docker run \
   -d \
   --network=host \
   -v ~/share/nginx/www:/mnt/www \
-  -v ~/share/cstrike/logs:/mnt/cstrike/logs \
   php-fpm-my:54
 
 sudo docker logs php-fpm-54
 ```
 
-Проверяем nxinx+php-fpm - http://site.home/index.php
-
-
-## Парсер статистики от PcychoStats
-
-Подкидываю директорию lib + stats.pl в ~/share/nginx/www/, заливаем в контейнер > /mnt/www/hlds_ps/
-
-Через WEB-интерфейс добавляю http://site.home/hlds_ps/admin/logsources_edit.php > /mnt/cstrike/logs
-
-```bash
-sudo docker exec -it php-fpm-54 bash
-    apt install libdbi-perl libdbd-mysql-perl
-    perl /mnt/www/hlds_ps/stats.pl
-```
-
-cron на хостовой машине
-```bash
-sudo crontab -e
-#---
-* * * * * docker exec php-fpm-54 /usr/bin/perl /mnt/www/hlds_ps/stats.pl 1>>/home/ars/hlds_stats.log 2>&1
-#---
-```
+Проверяем nginx+php-fpm - http://site.home/index.php
