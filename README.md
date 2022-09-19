@@ -1,29 +1,33 @@
 # Windows ОС с нуля
+софт:
+```powershell
+winget install --id Microsoft.PowerShell --source winget
+winget install --id Git.Git --source winget
+winget install --id PuTTY.PuTTY --source winget
+winget install --id Microsoft.VisualStudioCode --source winget
+```
 
-Необходимый софт:
-- https://www.chiark.greenend.org.uk/~sgtatham/putty/
-- https://code.visualstudio.com/
-- https://git-scm.com/
 
-
-
-# Git первичная настройка на Windows
-
-Пользователь
-```bash
+## Git настройка на Windows
+user:
+```powershell
 git config --global user.name "ars"
 git config --global user.email ars.anosov@gmail.com
 ```
 
 Т.к. Windows машина видит файлы по сети, изменение **прав** файлов заставляет Windows GIT думать что файлы модищицированы. Отключаем:
-```bash
+```powershell
 git config --global core.filemode false
 ```
 
 Разные файлы могут иметь разные "концы" строк LF или CRLF. По умолчанию Git принудительно на Windows машине модифицирует файлы LF -> CRLF. Отключаем это "умное" поведение Git:
-```bash
+```powershell
 git config --global core.autocrlf false
 ```
+
+## VSCode настройка на Windows
+extensions:
+- [SFTP](https://marketplace.visualstudio.com/items?itemName=Natizyskunk.sftp)
 
 
 
