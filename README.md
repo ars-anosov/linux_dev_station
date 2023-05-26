@@ -3,8 +3,11 @@
 ```powershell
 winget install --id Microsoft.PowerShell --source winget
 winget install --id Git.Git --source winget
-winget install --id PuTTY.PuTTY --source winget
+winget install --id Termius.Termius --source winget
+winget install --id WinSCP.WinSCP --source winget
 winget install --id Microsoft.VisualStudioCode --source winget
+winget install --id MongoDB.Compass.Full --source winget
+winget install --id Discord.Discord --source winget
 ```
 
 
