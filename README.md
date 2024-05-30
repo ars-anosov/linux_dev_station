@@ -12,6 +12,7 @@ winget install --id Git.Git --source winget
 winget install --id Microsoft.VisualStudioCode --source winget
 winget install --id MongoDB.Compass.Community --source winget
 winget install --id Discord.Discord --source winget
+winget install --id SplitCam.SplitCam --source winget
 ```
 
 
