@@ -1,12 +1,16 @@
 # Windows ОС с нуля
 софт:
 ```powershell
+Get-AppPackage -name *appinstaller* | select Name,Version
+
+winget search chrome
+winget install --id Google.Chrome --source winget
 winget install --id Microsoft.PowerShell --source winget
-winget install --id Git.Git --source winget
+winget install --id SublimeHQ.SublimeText.4 --source winget
 winget install --id Termius.Termius --source winget
-winget install --id WinSCP.WinSCP --source winget
+winget install --id Git.Git --source winget
 winget install --id Microsoft.VisualStudioCode --source winget
-winget install --id MongoDB.Compass.Full --source winget
+winget install --id MongoDB.Compass.Community --source winget
 winget install --id Discord.Discord --source winget
 ```
 
